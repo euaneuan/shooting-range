@@ -11,6 +11,7 @@ var xpos_of_stop = [170, 30] //this is where the moving target should stop
 var face_where = ['right', 'left']; //this states the direction the moving ellipses are going
 var point; //
 var table;
+var canpop;
 
 function preload() {
   //my table is comma separated value "csv"
@@ -18,7 +19,10 @@ function preload() {
   table = loadTable('this_is_France.csv', 'csv', 'header');
   //the file can be remote
   //table = loadTable("http://p5js.org/reference/assets/mammals.csv",
-  //                  "csv", "header");
+  //                  "csv", "header")
+  soundFormats('mp3', 'ogg');
+  canpop = loadSound('canpop.mp3');
+
 }
 
 function setup() {
@@ -142,6 +146,7 @@ function Can(x, y) {
     this.gotHit = function (mX, mY, can_num) {
         //todo
         if (mX >= this.hitbox_l_x && mX <= this.hitbox_r_x && mY >= this.hitbox_t_y && mY <= this.hitbox_b_y) {
+            canpop.play();
             cans.splice(can_num, 1);
             point += 1;
 
