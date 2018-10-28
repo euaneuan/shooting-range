@@ -180,7 +180,7 @@ function Target(x, y) {
     this.gotHit = function (mX, mY, target_num) {
         //todo
         if (mX >= this.hitbox_l_x && mX <= this.hitbox_r_x && mY >= this.hitbox_t_y && mY <= this.hitbox_b_y) {
-            target.splice(targer_num, 1);
+            targets.splice(target_num, 1);
             point += 1;
         }//ppp
 }
